@@ -25,14 +25,16 @@ public class LoginActivity extends AppCompatActivity {
     EditText editTextEmail, editTextPassword;
     Button buttonLogin, buttonCreateNewUser;
 
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    //private FirebaseAuth.AuthStateListener mAuthListener;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
+        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         loginButton();
         createButton();
     }
@@ -44,8 +46,6 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Log.d("CIS3334", "Signing in the user");
-                editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-                editTextPassword = (EditText) findViewById(R.id.editTextPassword);
                 String email = editTextEmail.getText().toString();
                 String password = editTextPassword.getText().toString();
                 signIn(email, password);
@@ -59,9 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         buttonCreateNewUser.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Log.d("CIS3334", "Creating a new user account");
-                //create account for new users
-                editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-                editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+                //create account for new user
                 String email = editTextEmail.getText().toString();
                 String password = editTextPassword.getText().toString();
                 createAccount(email, password);
