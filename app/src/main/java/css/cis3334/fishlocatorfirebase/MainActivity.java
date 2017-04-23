@@ -13,6 +13,10 @@ import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -25,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     List<Fish> fishList;
     int positionSelected;
     FishFirebaseData fishDataSource;
+    DatabaseReference myFishDbRef;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -40,10 +45,12 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user == null) {
                     // User is signed out
+
                     Log.d("CSS3334","onAuthStateChanged - User NOT is signed in");
                     Intent signInIntent = new Intent(getBaseContext(), LoginActivity.class);
                     startActivity(signInIntent);
                 }
+
             }
         };
         setupFirebaseDataChange();
@@ -54,7 +61,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupFirebaseDataChange() {
-        // ToDo - Add code here to update the listview with data from Firebase
+        fishDataSource = new FishFirebaseData();
+        myFishDbRef = fishDataSource.open();
+        myFishDbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.d("CIS3334", "Starting onDataChange()");        // debugging log
+                fishList = fishDataSource.getAllFish(dataSnapshot);
+                // Instantiate a custom adapter for displaying each fish
+                fishAdapter = new FishAdapter(MainActivity.this, android.R.layout.simple_list_item_single_choice, fishList);
+                // Apply the adapter to the list
+                listViewFish.setAdapter(fishAdapter);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d("CIS3334", "onCancelled: ");
+            }
+        });
     }
 
     @Override

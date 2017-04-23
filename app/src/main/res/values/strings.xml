@@ -3,5 +3,16 @@
     <string name="fish_caught">Fish caught so far...</string>
     <string name="add_fish">Add a fish</string>
     <string name="fish_details">Fish Details</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="create_a_new_user">Create a New User</string>
+    <string name="password">Password:</string>
+    <string name="sign_in_with_existing_credentials">Sign In With Existing Credentials</string>
+    <string name="user_name">User Name:</string>
+    <string name="back">Back</string>
+    <string name="date">Date</string>
+    <string name="enter_info_on_the_fish">Enter Info on the Fish</string>
+    <string name="location">Location</string>
+    <string name="species_of_fish">Species of fish:</string>
+    <string name="weight">Weight</string>
 </resources>
 

@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         loginButton();
         createButton();
+        signOut();
     }
 
 
@@ -49,6 +50,16 @@ public class LoginActivity extends AppCompatActivity {
                 String email = editTextEmail.getText().toString();
                 String password = editTextPassword.getText().toString();
                 signIn(email, password);
+            }
+        });
+    }
+
+    private void signOut () {
+
+        Button buttonLogout = (Button) findViewById(R.id.buttonLogout);
+        buttonLogout.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                mAuth.signOut();
             }
         });
     }

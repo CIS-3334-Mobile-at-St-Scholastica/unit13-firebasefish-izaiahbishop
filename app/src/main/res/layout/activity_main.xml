@@ -35,21 +35,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/buttonAddFish"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            tools:ignore="ButtonStyle" />
 
         <Button
             android:text="Delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/buttonDelete"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            tools:ignore="ButtonStyle,HardcodedText" />
 
         <Button
             android:text="@string/fish_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/buttonDetails"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            tools:ignore="ButtonStyle" />
 
     </LinearLayout>
 

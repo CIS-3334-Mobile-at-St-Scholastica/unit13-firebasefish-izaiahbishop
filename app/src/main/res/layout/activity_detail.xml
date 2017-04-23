@@ -12,14 +12,14 @@
     android:orientation="vertical">
 
     <TextView
-        android:text="Enter Info on the Fish"
+        android:text="@string/enter_info_on_the_fish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
         android:textSize="18sp" />
 
     <TextView
-        android:text="Species of fish:"
+        android:text="@string/species_of_fish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView3" />
@@ -29,10 +29,11 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editTextSpecies" />
+        android:id="@+id/editTextSpecies"
+        tools:ignore="LabelFor" />
 
     <TextView
-        android:text="Weight "
+        android:text="@string/weight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView4" />
@@ -42,10 +43,11 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editTextWeight" />
+        android:id="@+id/editTextWeight"
+        tools:ignore="LabelFor,TextFields" />
 
     <TextView
-        android:text="Date"
+        android:text="@string/date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView5" />
@@ -55,10 +57,11 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editTextDate" />
+        android:id="@+id/editTextDate"
+        tools:ignore="LabelFor,TextFields" />
 
     <TextView
-        android:text="Location"
+        android:text="@string/location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView6" />
@@ -68,10 +71,11 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editTextLocation" />
+        android:id="@+id/editTextLocation"
+        tools:ignore="LabelFor" />
 
     <Button
-        android:text="Back"
+        android:text="@string/back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/buttonReturn" />
